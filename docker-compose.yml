@@ -5,7 +5,7 @@ influxsrv:
     - ./data:/data
   ports:
     - "8088:8083"
-    - "8086:8086"
+    - "8886:8086"
   expose:
     - "8090"
     - "8099"
@@ -14,7 +14,7 @@ influxsrv:
 cadvisor:
   image: google/cadvisor
   name: cadvisor
-  command: -storage_driver=influxdb -storage_driver_db=cadvisor -storage_driver_host=influxsrv:8086
+  command: -storage_driver=influxdb -storage_driver_db=cadvisor -storage_driver_host=influxsrv:8886
   ports:
     - "8080:8080"
   volumes:
@@ -33,7 +33,7 @@ grafana:
     - influxsrv:influxsrv
   environment:
     - INFLUXDB_HOST=localhost
-    - INFLUXDB_PORT=8086
+    - INFLUXDB_PORT=8886
     - INFLUXDB_NAME=cadvisor
     - INFLUXDB_USER=root
     - INFLUXDB_PASS=root
