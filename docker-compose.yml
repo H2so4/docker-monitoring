@@ -31,9 +31,3 @@ grafana:
     - "3000:3000"
   links:
     - influxsrv:influxsrv
-  environment:
-    - INFLUXDB_HOST=localhost
-    - INFLUXDB_PORT=8886
-    - INFLUXDB_NAME=cadvisor
-    - INFLUXDB_USER=root
-    - INFLUXDB_PASS=root
